@@ -5,37 +5,37 @@
         
     <url>
      <loc>None/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/getting-started/what-you-need-to-start/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/getting-started/installation/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/getting-started/helloworld/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/getting-started/how-it-works/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/getting-started/whitespace/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -45,49 +45,49 @@
         
     <url>
      <loc>None/types/static-vs-dynamic/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/types/classes/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/types/primitives/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/types/actors/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/types/traits-and-interfaces/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/types/type-aliases/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/types/type-expressions/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/types/delegates/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -97,49 +97,49 @@
         
     <url>
      <loc>None/expressions/variables/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/expressions/infix-ops/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/expressions/control-structures/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/expressions/methods/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/expressions/exceptions/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/expressions/sugar/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/expressions/object-literals/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/expressions/partial-application/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -149,67 +149,67 @@
         
     <url>
      <loc>None/capabilities/object-capabilities/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/capabilities/reference-capabilities/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/capabilities/guarantees/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/capabilities/aliasing/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/capabilities/consume-and-destructive-read/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/capabilities/recovering-capabilities/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/capabilities/combining-capabilities/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/capabilities/passing-and-sharing/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/capabilities/capability-subtyping/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/capabilities/arrow-types/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/capabilities/trust-boundary/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -219,13 +219,13 @@
         
     <url>
      <loc>None/generics/polymorphic-types/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/generics/polymorphic-methods/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -234,7 +234,7 @@
     
     <url>
      <loc>None/packages/package-system/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -242,7 +242,7 @@
     
     <url>
      <loc>None/composition-inheritance/code-sharing/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -251,13 +251,13 @@
         
     <url>
      <loc>None/pattern-matching/match/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/pattern-matching/as/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -266,7 +266,7 @@
     
     <url>
      <loc>None/platform/platform/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -274,7 +274,7 @@
     
     <url>
      <loc>None/editor-plugins/plugins/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -282,7 +282,7 @@
     
     <url>
      <loc>None/compiler-clargs/clargs/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -290,7 +290,7 @@
     
     <url>
      <loc>None/patterns/patterns/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -299,19 +299,19 @@
         
     <url>
      <loc>None/c-ffi/calling-c/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/c-ffi/linking-c/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/c-ffi/c-abi/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -321,13 +321,13 @@
         
     <url>
      <loc>None/runtime/memory-allocation/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/runtime/garbage-collection/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -336,7 +336,7 @@
     
     <url>
      <loc>None/examples/examples/</loc>
-     <lastmod>2015-12-16</lastmod>
+     <lastmod>2016-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
