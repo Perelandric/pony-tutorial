@@ -648,14 +648,14 @@ actor Main
 
 <h1 id="guards">Guards</h1>
 <p>In addition to matching on types and values each case in a match can also have a guard condition. This is simply an expression, evaluated <strong>after</strong> type and value matching has occurred, that must give the value true for the case to match. If the guard is false then the case doesn't match and we move onto the next in the usual way.</p>
-<p>Guards are introduced with the <code>where</code> keyword.</p>
+<p>Guards are introduced with the <code>if</code> keyword (<em>was <code>where</code> until 0.2.1</em>).</p>
 <p>A guard expression may use any captured variables from that case, which allows for handling ranges and complex functions.</p>
 <pre><code class="pony">fun f(x: (String | None), y: U32): String =&gt;
   match (x, y)
   | (None, _) =&gt; &quot;none&quot;
   | (let s: String, 2) =&gt; s + &quot; two&quot;
   | (let s: String, 3) =&gt; s + &quot; three&quot;
-  | (let s: String, let u: U32) where u &gt; 14 =&gt; s + &quot; other big integer&quot;
+  | (let s: String, let u: U32) if u &gt; 14 =&gt; s + &quot; other big integer&quot;
   | (let s: String, _) =&gt; s + &quot; other small integer&quot;
   else
     &quot;something else&quot;
