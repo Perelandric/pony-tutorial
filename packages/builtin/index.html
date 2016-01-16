@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Patterns - Pony Tutorial</title>
+  <title>Builtin - Pony Tutorial</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -21,7 +21,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Patterns";
+    var mkdocs_page_name = "Builtin";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -338,13 +338,6 @@
           
             <li>
     <li class="toctree-l1 ">
-        <a class="" href="../../packages/package-system/">Package system</a>
-        
-    </li>
-<li>
-          
-            <li>
-    <li class="toctree-l1 ">
         <a class="" href="../../composition-inheritance/code-sharing/">Code sharing</a>
         
     </li>
@@ -373,33 +366,51 @@
 <li>
           
             <li>
+    <ul class="subnav">
+    <li><span>Packages</span></li>
+
+        
+            
     <li class="toctree-l1 ">
-        <a class="" href="../../platform/platform/">Platform</a>
+        <a class="" href="../package-system/">Package system</a>
         
     </li>
-<li>
-          
-            <li>
+
+        
+            
     <li class="toctree-l1 ">
-        <a class="" href="../../editor-plugins/plugins/">Editor support</a>
+        <a class="" href="../use-statement/">Use statement</a>
         
     </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Builtin</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#standard-library">Standard library</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../platform/">Use conditions</a>
+        
+    </li>
+
+        
+    </ul>
 <li>
           
             <li>
     <li class="toctree-l1 ">
         <a class="" href="../../compiler-clargs/clargs/">Compiler args</a>
-        
-    </li>
-<li>
-          
-            <li>
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Patterns</a>
-        
-            <ul>
-            
-            </ul>
         
     </li>
 <li>
@@ -436,6 +447,13 @@
             <li>
     <ul class="subnav">
     <li><span>The Runtime</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../runtime/otp/">Otp</a>
+        
+    </li>
 
         
             
@@ -483,8 +501,12 @@
     <li><a href="../..">Docs</a> &raquo;</li>
     
       
+        
+          <li>Packages &raquo;</li>
+        
+      
     
-    <li>Patterns</li>
+    <li>Builtin</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -494,7 +516,9 @@
           <div role="main">
             <div class="section">
               
-                
+                <h1 id="standard-library">Standard library</h1>
+<p>The Pony standard library is a collection of packages that can each be used as needed to provide a variety of functionality. For example the <strong>files</strong> package provides file access and the <strong>collections</strong> package provides generic lists, maps, sets and so on.</p>
+<p>There is also a special package in the standard library called <strong>builtin</strong>. This contains various types that the compiler has to treat specially and are so common that all Pony code needs to know about them. All Pony source files have an implicit <code>use "builtin"</code> command. This means all the types defined in the package builtin are automatically available in the type namespace of all Pony source files.</p>
               
             </div>
           </div>
@@ -502,10 +526,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../c-ffi/calling-c/" class="btn btn-neutral float-right" title="Calling C"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../platform/" class="btn btn-neutral float-right" title="Use conditions"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../compiler-clargs/clargs/" class="btn btn-neutral" title="Compiler args"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../use-statement/" class="btn btn-neutral" title="Use statement"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -531,10 +555,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../../compiler-clargs/clargs/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../use-statement/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../c-ffi/calling-c/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../platform/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

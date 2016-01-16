@@ -338,13 +338,6 @@
           
             <li>
     <li class="toctree-l1 ">
-        <a class="" href="../../packages/package-system/">Package system</a>
-        
-    </li>
-<li>
-          
-            <li>
-    <li class="toctree-l1 ">
         <a class="" href="../../composition-inheritance/code-sharing/">Code sharing</a>
         
     </li>
@@ -373,17 +366,39 @@
 <li>
           
             <li>
+    <ul class="subnav">
+    <li><span>Packages</span></li>
+
+        
+            
     <li class="toctree-l1 ">
-        <a class="" href="../../platform/platform/">Platform</a>
+        <a class="" href="../../packages/package-system/">Package system</a>
         
     </li>
-<li>
-          
-            <li>
+
+        
+            
     <li class="toctree-l1 ">
-        <a class="" href="../../editor-plugins/plugins/">Editor support</a>
+        <a class="" href="../../packages/use-statement/">Use statement</a>
         
     </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../packages/builtin/">Builtin</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../packages/platform/">Use conditions</a>
+        
+    </li>
+
+        
+    </ul>
 <li>
           
             <li>
@@ -392,14 +407,13 @@
         
             <ul>
             
+                <li class="toctree-l3"><a href="#compiler-args">Compiler args</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#runtime-options-for-pony-programs">Runtime options for Pony programs</a></li>
+                
+            
             </ul>
-        
-    </li>
-<li>
-          
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../patterns/patterns/">Patterns</a>
         
     </li>
 <li>
@@ -436,6 +450,13 @@
             <li>
     <ul class="subnav">
     <li><span>The Runtime</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../runtime/otp/">Otp</a>
+        
+    </li>
 
         
             
@@ -494,7 +515,47 @@
           <div role="main">
             <div class="section">
               
-                
+                <h1 id="compiler-args">Compiler args</h1>
+<p><code>ponyc</code>, the compiler, is usually called in the project directory,
+where it finds the <code>.pony</code> files and its dependencies
+automatically. There it will create the binary based on the directory
+name. You can override this and tune the compilation with several
+options as described via <code>ponyc --help</code> and you can pass a seperate
+source directory as argument.</p>
+<p><code>ponyc [OPTIONS] &lt;package directory&gt;</code></p>
+<p>The most useful options are <code>--debug</code>, <code>--path</code> or just <code>-p</code>,
+<code>--output</code> or just <code>-o</code> and <code>--docs</code> or <code>-g</code>. With <code>-l</code> you can
+generate a C library, <code>lib&lt;directory&gt;</code>.</p>
+<p><code>--debug</code> will skip the LLVM optimizations passes. This should not be
+mixed up with <code>make config=debug</code>, the default make configuration
+target. <code>config=debug</code> will create DWARF symbols, and add slower
+assertions to ponyc, but not to the generated binaries. For those you
+can omit DWARF symbols with the <code>--strip</code> or <code>-s</code> option.</p>
+<p><code>--path</code> or <code>-p</code> take a <code>:</code> seperated pathlist as argument, and adds
+those to the compile-time library paths for the linker to find source
+packages and the native libraries, static or dynamic, being linked at
+compile-time or via the FFI at run-time. The system adds several paths
+already, e.g. on windows it queries the registry to find the compiler
+run-time paths, you can also use <code>use "lib:path"</code> statements in the
+source code and as final possibility you can add <code>-p</code> paths. But if
+you want the generated binary to accept such a path to find a dynamic
+library at your client system, you need to handle that in your source
+code by yourself. See the <code>options</code> package for this.</p>
+<p><code>--output</code> or <code>-o</code> takes a directory name where the final binary is
+created.</p>
+<p><code>--docs</code> or -<code>g</code> creates a directory of the package with documentation
+in markdown format.</p>
+<p>Note that there is <em>no builtin debugger</em> to interactively step through
+your program and interpret the results. But ponyc creates proper DWARF
+symbols and you can step through your programs with a conventional
+debugger, such as gdb or lldb.</p>
+<h1 id="runtime-options-for-pony-programs">Runtime options for Pony programs</h1>
+<p>Besides using the <code>options</code> package, there are also several builtin
+options for the generated binary (<em>not for use with ponyc</em>) starting
+with <code>--pony*</code>, see <code>ponyc --help</code>, to tweak runtime performance. You
+can override the number of initial threads, tune cycle detection
+(<em>CD</em>), the garbage collector and even turn off yield, which is not
+really recommended.</p>
               
             </div>
           </div>
@@ -502,10 +563,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../patterns/patterns/" class="btn btn-neutral float-right" title="Patterns"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../c-ffi/calling-c/" class="btn btn-neutral float-right" title="Calling C"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../editor-plugins/plugins/" class="btn btn-neutral" title="Editor support"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../packages/platform/" class="btn btn-neutral" title="Use conditions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -531,10 +592,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../../editor-plugins/plugins/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../../packages/platform/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../patterns/patterns/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../c-ffi/calling-c/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

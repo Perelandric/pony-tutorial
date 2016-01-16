@@ -338,13 +338,6 @@
           
             <li>
     <li class="toctree-l1 ">
-        <a class="" href="../../packages/package-system/">Package system</a>
-        
-    </li>
-<li>
-          
-            <li>
-    <li class="toctree-l1 ">
         <a class="" href="../../composition-inheritance/code-sharing/">Code sharing</a>
         
     </li>
@@ -373,29 +366,44 @@
 <li>
           
             <li>
+    <ul class="subnav">
+    <li><span>Packages</span></li>
+
+        
+            
     <li class="toctree-l1 ">
-        <a class="" href="../../platform/platform/">Platform</a>
+        <a class="" href="../../packages/package-system/">Package system</a>
         
     </li>
-<li>
-          
-            <li>
+
+        
+            
     <li class="toctree-l1 ">
-        <a class="" href="../../editor-plugins/plugins/">Editor support</a>
+        <a class="" href="../../packages/use-statement/">Use statement</a>
         
     </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../packages/builtin/">Builtin</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../packages/platform/">Use conditions</a>
+        
+    </li>
+
+        
+    </ul>
 <li>
           
             <li>
     <li class="toctree-l1 ">
         <a class="" href="../../compiler-clargs/clargs/">Compiler args</a>
-        
-    </li>
-<li>
-          
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../patterns/patterns/">Patterns</a>
         
     </li>
 <li>
@@ -436,6 +444,13 @@
         
             
     <li class="toctree-l1 ">
+        <a class="" href="../otp/">Otp</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
         <a class="" href="../memory-allocation/">Memory allocation</a>
         
     </li>
@@ -446,6 +461,12 @@
         <a class="current" href="./">Garbage collection</a>
         
             <ul>
+            
+                <li class="toctree-l3"><a href="#garbage-collection-with-pony-orca">Garbage collection with Pony-ORCA</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#pony-orca-characteristics">Pony-ORCA characteristics</a></li>
+                
             
             </ul>
         
@@ -498,7 +519,82 @@
           <div role="main">
             <div class="section">
               
-                
+                <h1 id="garbage-collection-with-pony-orca">Garbage collection with Pony-ORCA</h1>
+<p>Pony-ORCA is a fully concurrent protocol for garbage collection in the
+actor paradigm. It allows cheap and small actors to perform garbage
+collection concurrently with any number of other actors, and this
+number can go into the millions, since one actor needs only 256 bytes
+on 64bit systems. It does not require any form of synchronization
+across actors except those introduced through the actor paradigm,
+i.e. <strong>message send</strong> and <strong>message receive</strong>.</p>
+<p>Pony-ORCA, yes <em>the killer whale</em>, is based on ideas from ownership
+and deferred, distributed, weighted <strong>reference counting</strong>. It adapts
+messaging systems of actors to keep the reference count
+consistent. The main challenges in concurrent garbage collection is
+the detection of cycles of sleeping actors in the actors graph, in the
+presence of concurrent mutation of this graph. With message passing
+you get deferred direct reference counting, a dedicated actor for the
+detection of (cyclic) garbage, and a confirmation protocol (to deal
+with the mutation of the actor graph).</p>
+<ol>
+<li>
+<p><em>Soundness</em>: the technique collects only dead actors.</p>
+</li>
+<li>
+<p><em>Completeness</em>: the technique collects all dead actors eventually.</p>
+</li>
+<li>
+<p><em>Concurrency</em>: the technique does not require a stop-the-world
+   step, clocks, timestamps, versioning, thread coordination, actor
+   introspection, shared memory, read/write barriers or cache
+   coherency.</p>
+</li>
+</ol>
+<p>The type system ensures at compile time that your program can <strong>never have data races</strong>.
+It's <strong>deadlock free</strong>... Because Pony has <strong>no locks</strong>!</p>
+<p>When an actor has completed local execution and has no pending
+messages on its queue, it is <em>blocked</em>. An actor is <em>dead</em>, if it is
+blocked and all actors that have a reference to it are blocked,
+transitively. Collection of dead actors depends on being able to
+collect closed cycles of blocked actors.</p>
+<p>The Pony type system guarantees soundness and race and dead-lock
+free concurrency by adhering to the following principles:</p>
+<h1 id="pony-orca-characteristics">Pony-ORCA characteristics</h1>
+<ol>
+<li>
+<p>An actor may perform garbage collection concurrently other actors
+   while they are executing and kind of behaviour.</p>
+</li>
+<li>
+<p>An actor may decide whether to garbage collect an object solely
+   based on its own local state, without consultation with, or
+   inspecting the state of any other actor.</p>
+</li>
+<li>
+<p>No synchronization between actors is required during garbage
+   collection, other than potential message sends.</p>
+</li>
+<li>
+<p>An actor may garbage collect between its normal behaviours, i.e. it
+   need not wait untils its message queue is empty.</p>
+</li>
+<li>
+<p>Pony-ORCA can be applied to several other programming languages,
+   provided that the satisfy the following two requirements:</p>
+<ul>
+<li>
+<p><strong>Actor behaviours are atomic</strong>.</p>
+</li>
+<li>
+<p><strong>Message delivery is casual</strong> - i.e. messages arrive before any
+  messages they may have caused, if they have the same destination. So
+  there needs to be some kind of casual ordering guarantee, but less
+  requirements than with comparable concurrent, fast garbage
+  collectors.</p>
+</li>
+</ul>
+</li>
+</ol>
               
             </div>
           </div>

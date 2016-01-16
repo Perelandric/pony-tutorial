@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Platform - Pony Tutorial</title>
+  <title>Use conditions - Pony Tutorial</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -21,7 +21,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Platform";
+    var mkdocs_page_name = "Use conditions";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -338,13 +338,6 @@
           
             <li>
     <li class="toctree-l1 ">
-        <a class="" href="../../packages/package-system/">Package system</a>
-        
-    </li>
-<li>
-          
-            <li>
-    <li class="toctree-l1 ">
         <a class="" href="../../composition-inheritance/code-sharing/">Code sharing</a>
         
     </li>
@@ -373,33 +366,51 @@
 <li>
           
             <li>
+    <ul class="subnav">
+    <li><span>Packages</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../package-system/">Package system</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../use-statement/">Use statement</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../builtin/">Builtin</a>
+        
+    </li>
+
+        
+            
     <li class="toctree-l1 current">
-        <a class="current" href="./">Platform</a>
+        <a class="current" href="./">Use conditions</a>
         
             <ul>
+            
+                <li class="toctree-l3"><a href="#platform-dependent-code">Platform dependent code</a></li>
+                
             
             </ul>
         
     </li>
-<li>
-          
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../editor-plugins/plugins/">Editor support</a>
+
         
-    </li>
+    </ul>
 <li>
           
             <li>
     <li class="toctree-l1 ">
         <a class="" href="../../compiler-clargs/clargs/">Compiler args</a>
-        
-    </li>
-<li>
-          
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../patterns/patterns/">Patterns</a>
         
     </li>
 <li>
@@ -436,6 +447,13 @@
             <li>
     <ul class="subnav">
     <li><span>The Runtime</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../runtime/otp/">Otp</a>
+        
+    </li>
 
         
             
@@ -483,8 +501,12 @@
     <li><a href="../..">Docs</a> &raquo;</li>
     
       
+        
+          <li>Packages &raquo;</li>
+        
+      
     
-    <li>Platform</li>
+    <li>Use conditions</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -494,7 +516,21 @@
           <div role="main">
             <div class="section">
               
-                
+                <h1 id="platform-dependent-code">Platform dependent code</h1>
+<p>The Pony libraries of course want to abstract platform differences.
+Sometimes you may want a use command that only works under certain
+circumstances, most commonly only on a particular OS or only for debug
+builds. You can do this by specifying a condition for a use command:</p>
+<pre><code class="pony">use &quot;foo&quot; if linux
+use &quot;bar&quot; if (windows and debug)
+</code></pre>
+
+<p>Use conditions can use any of the methods defined in <code>builtin/Platform</code> as conditions.
+There are currently the following booleans defined:
+<code>freebsd</code>, <code>linux</code>, <code>osx</code>, <code>posix</code> =&gt; <code>(freebsd or linux or osx)</code>,
+<code>windows</code>, <code>x86</code>, <code>arm</code>, <code>lp64</code>, <code>llp64</code>, <code>ilp32</code>, <code>has_i128</code>, <code>debug</code></p>
+<p>They can also use the operators <code>and</code>, <code>or</code>, <code>xor</code> and <code>not</code>. As with other expressions in Pony, parentheses <strong>must</strong> be used to indicate precedence if more than one of <code>and</code>, <code>or</code> and <code>xor</code> is used.</p>
+<p>Any use command whose condition evaluates to false is ignored.</p>
               
             </div>
           </div>
@@ -502,10 +538,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../editor-plugins/plugins/" class="btn btn-neutral float-right" title="Editor support"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../compiler-clargs/clargs/" class="btn btn-neutral float-right" title="Compiler args"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../pattern-matching/as/" class="btn btn-neutral" title="As"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../builtin/" class="btn btn-neutral" title="Builtin"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -531,10 +567,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../../pattern-matching/as/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../builtin/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../editor-plugins/plugins/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../compiler-clargs/clargs/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

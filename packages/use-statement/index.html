@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Object literals - Pony Tutorial</title>
+  <title>Use statement - Pony Tutorial</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -21,7 +21,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Object literals";
+    var mkdocs_page_name = "Use statement";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -172,72 +172,56 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../variables/">Variables</a>
+        <a class="" href="../../expressions/variables/">Variables</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../infix-ops/">Infix ops</a>
+        <a class="" href="../../expressions/infix-ops/">Infix ops</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../control-structures/">Control structures</a>
+        <a class="" href="../../expressions/control-structures/">Control structures</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../methods/">Methods</a>
+        <a class="" href="../../expressions/methods/">Methods</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../exceptions/">Exceptions</a>
+        <a class="" href="../../expressions/exceptions/">Exceptions</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../sugar/">Sugar</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Object literals</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#whats-this-look-like-then">What's this look like, then?</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#lambdas">Lambdas</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#actor-literals">Actor literals</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#primitive-literals">Primitive literals</a></li>
-                
-            
-            </ul>
+        <a class="" href="../../expressions/sugar/">Sugar</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../partial-application/">Partial application</a>
+        <a class="" href="../../expressions/object-literals/">Object literals</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../expressions/partial-application/">Partial application</a>
         
     </li>
 
@@ -388,28 +372,39 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../packages/package-system/">Package system</a>
+        <a class="" href="../package-system/">Package system</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Use statement</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#use-command">Use command</a></li>
+                
+                    <li><a class="toctree-l4" href="#use-names">Use names</a></li>
+                
+                    <li><a class="toctree-l4" href="#scheme-indicators">Scheme indicators</a></li>
+                
+            
+            </ul>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../packages/use-statement/">Use statement</a>
+        <a class="" href="../builtin/">Builtin</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../packages/builtin/">Builtin</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../packages/platform/">Use conditions</a>
+        <a class="" href="../platform/">Use conditions</a>
         
     </li>
 
@@ -511,11 +506,11 @@
     
       
         
-          <li>Expressions &raquo;</li>
+          <li>Packages &raquo;</li>
         
       
     
-    <li>Object literals</li>
+    <li>Use statement</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -525,58 +520,90 @@
           <div role="main">
             <div class="section">
               
-                <p>Sometimes it's really convenient to be able to write a whole object inline. In Pony, this is called an object literal, and it does pretty much exactly what an object literal in JavaScript does: it creates an object that you can use immediately.</p>
-<p>But Pony is statically typed, so an object literal also creates an anonymous type that the object literal fulfills. This is similar to anonymous classes in Java and C#. In Pony, an anonymous type can provide any number of traits and interfaces.</p>
-<h1 id="whats-this-look-like-then">What's this look like, then?</h1>
-<p>It basically looks like any other type definition, but with some small differences. Here's a simple one:</p>
-<pre><code class="pony">object
-  fun apply(): String =&gt; &quot;hi&quot;
-end
+                <h1 id="use-command">Use command</h1>
+<p>To use a package in your code you need to have a <strong>use</strong> command. This tells the compiler to find the package you need and make the types defined in it available to you. Every Pony file that needs to know about a type from a package must have a use command for it.</p>
+<p>Use commands are a similar concept to Python and Java "import", C/C++ "#include" and C# "using" commands, but not exactly the same. They come at the beginning of Pony files and look like this:</p>
+<pre><code class="pony">use &quot;collections&quot;
 </code></pre>
 
-<p>Ok, that's pretty trivial. Let's extend it so that it explicitly provides an interface, so that the compiler will make sure the anonymous type fulfills that interface. You can use the same notation to provide traits as well.</p>
-<pre><code class="pony">object is Hashable
-  fun apply(): String =&gt; &quot;hi&quot;
-  fun hash(): U64 =&gt; this().hash()
-end
+<p>This will find all of the publicly visible types defined in the <em>collections</em> package and add them to the type namespace of the file containing the use command. These types are then available to use within that file, just as if they were defined locally.</p>
+<p>For example, the standard library contains the package <em>time</em>. This contains the following definition (among others):</p>
+<pre><code class="pony">primitive Time
+  fun now(): (I64, I64)
 </code></pre>
 
-<p>What we can't do is specify constructors in an object literal, because literal <em>is</em> the constructor. So how do we assign to fields? Well, we just assign to them. For example:</p>
-<pre><code class="pony">class Foo
-  fun foo(str: String): Hashable =&gt;
-    object is Hashable
-      let s: String = str
-      fun apply(): String =&gt; s
-      fun hash(): U64 =&gt; s.hash()
-    end
+<p>To access the <em>now</em> function just add a use command:</p>
+<pre><code class="pony">use &quot;time&quot;
+
+class Foo
+  fun f() =&gt;
+    (var secs, var nsecs) = Time.now()
 </code></pre>
 
-<p>When we assign to a field in the constructor, we are <em>capturing</em> from the lexical scope the object literal is in. Pretty fun stuff! It lets us have arbitrarily complex <strong>closures</strong> that can even have multiple entry points (i.e. functions you can call on a closure).</p>
-<p>An object literal is always returned as a <code>ref</code>, like a default constructor on a class. To get another reference capability (<code>iso</code>, <code>val</code>, etc.), you can wrap the object literal in a <code>recover</code> expression.</p>
-<h1 id="lambdas">Lambdas</h1>
-<p>Arbitrarily complex closures are nice, but sometimes we just want a simple closure. In Pony, you can use the <code>lambda</code> keyword for that.</p>
-<pre><code class="pony">lambda(s: String): String =&gt; &quot;lambda: &quot; + s end
+<h2 id="use-names">Use names</h2>
+<p>As we saw above the use command adds all the public types from a package into the namespace of the using file. This means that using a package may define type names that you want to use for your own types. Furthermore, if you use two packages within a file they may both define the same type name, causing a clash in your namespace. For example:</p>
+<pre><code class="pony">// In package A
+class Foo
+
+// In package B
+class Foo
+
+// In your code
+use &quot;packageA&quot;
+use &quot;packageB&quot;
+
+class Bar
+  var _x: Foo
 </code></pre>
 
-<p>This produces the same code as:</p>
-<pre><code class="pony">object
-  fun apply(s: String): String =&gt; &quot;lambda: &quot; + s
-end
+<p>The declarations of _x is an error because we don't know which <code>Foo</code> is being referred to. Actually using 'Foo' is not even required, simply using both package A and package B is enough to cause an error here.</p>
+<p>To avoid this problem the use command allows you to specify an alias. If you do this then only that alias is put into your namespace. The types from the used package can then be accessed using this alias as a qualifier. Our example now becomes:</p>
+<pre><code class="pony">// In package A
+class Foo
+
+// In package B
+class Foo
+
+// In your code
+use a = &quot;packageA&quot;
+use b = &quot;packageB&quot;
+
+class Bar
+  var _x: a.Foo  // The Foo from package A
+  var _y: b.Foo  // The Foo from package B
 </code></pre>
 
-<h1 id="actor-literals">Actor literals</h1>
-<p>Normally, an object literal is an instance of an anonymous class. To make it an instance of an anonymous actor, just include one or more behaviours in the object literal definition.</p>
-<pre><code class="pony">object
-  let stream: Stream = env.out
-  be apply() =&gt; stream.print(&quot;hi&quot;)
-end
+<p>If you prefer you can give an alias to only one of the packages. <code>Foo</code> will then still be added to your namespace referring to the unaliased package:</p>
+<pre><code class="pony">// In package A
+class Foo
+
+// In package B
+class Foo
+
+// In your code
+use &quot;packageA&quot;
+use b = &quot;packageB&quot;
+
+class Bar
+  var _x: Foo  // The Foo from package A
+  var _y: b.Foo  // The Foo from package B
 </code></pre>
 
-<p>An actor literal is always returned as a <code>tag</code>.</p>
-<h1 id="primitive-literals">Primitive literals</h1>
-<p>When an anonymous type has no fields and no behaviours (like, for example, an object literal declared with the <code>lambda</code> keyword), the compiler generates it as an anonymous primitive. This means no memory allocation is needed to generate an instance of that type.</p>
-<p>In other words, a lambda in Pony has no memory allocation overhead. Nice.</p>
-<p>A primitive literal is always returned as a <code>val</code>.</p>
+<p><strong>Can I just specify the full package path and forget about the use command, like I do in Java and C#?</strong> No, you can't do that in Pony. You can't refer to one package based on a use command for another package and you can't use types from a package without a use command for that package. Every package that you want to use must have its own use command.</p>
+<p><strong>Are there limits on the names I can use for an alias?</strong> Use alias names have to start with a lower case letter. Other than that you can use whatever name you want, as long as you're not using that name for any other purpose in your file.</p>
+<h2 id="scheme-indicators">Scheme indicators</h2>
+<p>The string we give to a use command is known as the <em>specifier</em>. This consists of a <em>scheme</em> indicator and a <em>locator</em>, separated by a colon. The scheme indicator tells the use command what we want it to do, for example the scheme indicator for including a package is "package". If no colon is found within the specifier string then the use command assumes you meant "package".</p>
+<p>The following two use commands are exactly equivalent:</p>
+<pre><code class="pony">use &quot;foo&quot;
+use &quot;package:foo&quot;
+</code></pre>
+
+<p>If you are using a locator string that includes a colon, for example an absolute path in Windows, then you <strong>have</strong> to include the "package" scheme specifier:</p>
+<pre><code class="pony">use &quot;C:/foo/bar&quot;  // Error, scheme &quot;C&quot; is unknown
+use &quot;package:C:/foo/bar&quot;  // OK
+</code></pre>
+
+<p>To allow use commands to be portable across operating systems, and to avoid confusion with escape characters, '/' should always be used as the path separator in use commands, even on Windows.</p>
               
             </div>
           </div>
@@ -584,10 +611,10 @@ end
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../partial-application/" class="btn btn-neutral float-right" title="Partial application"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../builtin/" class="btn btn-neutral float-right" title="Builtin"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../sugar/" class="btn btn-neutral" title="Sugar"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../package-system/" class="btn btn-neutral" title="Package system"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -613,10 +640,10 @@ end
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../sugar/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../package-system/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../partial-application/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../builtin/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

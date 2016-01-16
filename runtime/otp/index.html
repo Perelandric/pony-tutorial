@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Editor support - Pony Tutorial</title>
+  <title>Otp - Pony Tutorial</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -21,7 +21,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Editor support";
+    var mkdocs_page_name = "Otp";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -338,13 +338,6 @@
           
             <li>
     <li class="toctree-l1 ">
-        <a class="" href="../../packages/package-system/">Package system</a>
-        
-    </li>
-<li>
-          
-            <li>
-    <li class="toctree-l1 ">
         <a class="" href="../../composition-inheritance/code-sharing/">Code sharing</a>
         
     </li>
@@ -373,33 +366,44 @@
 <li>
           
             <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../platform/platform/">Platform</a>
+    <ul class="subnav">
+    <li><span>Packages</span></li>
+
         
-    </li>
-<li>
-          
-            <li>
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Editor support</a>
-        
-            <ul>
             
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../../packages/package-system/">Package system</a>
         
     </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../packages/use-statement/">Use statement</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../packages/builtin/">Builtin</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../packages/platform/">Use conditions</a>
+        
+    </li>
+
+        
+    </ul>
 <li>
           
             <li>
     <li class="toctree-l1 ">
         <a class="" href="../../compiler-clargs/clargs/">Compiler args</a>
-        
-    </li>
-<li>
-          
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../patterns/patterns/">Patterns</a>
         
     </li>
 <li>
@@ -439,15 +443,35 @@
 
         
             
-    <li class="toctree-l1 ">
-        <a class="" href="../../runtime/memory-allocation/">Memory allocation</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Otp</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#ponyotp">Pony/OTP</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#genevent">GenEvent</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#otp">OTP</a></li>
+                
+            
+            </ul>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../runtime/garbage-collection/">Garbage collection</a>
+        <a class="" href="../memory-allocation/">Memory allocation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../garbage-collection/">Garbage collection</a>
         
     </li>
 
@@ -483,8 +507,12 @@
     <li><a href="../..">Docs</a> &raquo;</li>
     
       
+        
+          <li>The Runtime &raquo;</li>
+        
+      
     
-    <li>Editor support</li>
+    <li>Otp</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -494,7 +522,71 @@
           <div role="main">
             <div class="section">
               
-                
+                <h1 id="ponyotp">Pony/OTP</h1>
+<p>The most successful actor based programming language is <strong>Erlang/OTP</strong>.</p>
+<p>OTP in a nutshell:</p>
+<ul>
+<li><code>gen_server</code> &amp; <code>gen_nb_server</code> ~ A pony actor</li>
+<li><code>gen_event</code> - Easy to implement</li>
+<li><code>gen_fsm</code> - In progress</li>
+<li><code>gen_supervisor</code> - Harder to implement ( needs monitors, links - feature planned )</li>
+<li>distributed multinode erlang - Already being actively researched ( A String of Ponies )</li>
+<li>applications ~ a binary</li>
+<li>libraries ~ a pony package or shared library</li>
+</ul>
+<h1 id="genevent">GenEvent</h1>
+<p>An actor that will:</p>
+<ul>
+<li>Register one or many handlers</li>
+<li>Push events to all registered handlers</li>
+</ul>
+<pre><code class="pony">interface GenEventHandler[T : Any #send]
+  fun box name() : String
+  be handle(data : T!)
+</code></pre>
+
+<pre><code class="pony">actor GenEvent[T: Any #send]
+  var subscribers : List[GenEventHandler[T] iso!]
+
+  new create() =&gt;
+    subscribers = List[GenEventHandler[T] iso!]
+
+  be subscribe(handler : GenEventHandler[T] tag) =&gt;
+    subscribers = subscribers.push(consume handler)
+
+  be push(data : T!) =&gt;
+    for subscriber in subscribers.values() do
+        let data' = data
+        subscriber.handle(consume data')
+    end
+</code></pre>
+
+<p>A simple debug handler</p>
+<pre><code class="pony">actor StringEventHandler is GenEventHandler[String]
+  let _name : String
+  new create( name' : String ) =&gt;
+    _name = name'
+  fun box name() : String =&gt;
+    _name
+  be handle(data : String ) =&gt;
+    Debug.out(&quot;String: &quot; + data + &quot; received by handler &quot; + name())
+</code></pre>
+
+<h1 id="otp">OTP</h1>
+<pre><code>actor Main
+  let gen_event : GenEvent[String]
+
+  new create(env : Env) =&gt;
+    gen_event = GenEvent[String]
+    let foo = StringEventHandler(&quot;foo&quot;)
+    let baz : Stringable = Foo(&quot;bar&quot;)
+    gen_event.subscribe(foo)
+    let x = &quot;hello world 4 &quot; + baz.string()
+    gen_event.push(&quot;Hello Pony World 1!&quot;)
+      .push(&quot;Hello Pony World 2!&quot;)
+      .push(x)
+      .push(baz.string())
+</code></pre>
               
             </div>
           </div>
@@ -502,10 +594,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../compiler-clargs/clargs/" class="btn btn-neutral float-right" title="Compiler args"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../memory-allocation/" class="btn btn-neutral float-right" title="Memory allocation"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../platform/platform/" class="btn btn-neutral" title="Platform"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../c-ffi/c-abi/" class="btn btn-neutral" title="C abi"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -531,10 +623,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../../platform/platform/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../../c-ffi/c-abi/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../compiler-clargs/clargs/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../memory-allocation/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

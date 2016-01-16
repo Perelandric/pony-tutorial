@@ -357,13 +357,6 @@
           
             <li>
     <li class="toctree-l1 ">
-        <a class="" href="../../packages/package-system/">Package system</a>
-        
-    </li>
-<li>
-          
-            <li>
-    <li class="toctree-l1 ">
         <a class="" href="../../composition-inheritance/code-sharing/">Code sharing</a>
         
     </li>
@@ -392,29 +385,44 @@
 <li>
           
             <li>
+    <ul class="subnav">
+    <li><span>Packages</span></li>
+
+        
+            
     <li class="toctree-l1 ">
-        <a class="" href="../../platform/platform/">Platform</a>
+        <a class="" href="../../packages/package-system/">Package system</a>
         
     </li>
-<li>
-          
-            <li>
+
+        
+            
     <li class="toctree-l1 ">
-        <a class="" href="../../editor-plugins/plugins/">Editor support</a>
+        <a class="" href="../../packages/use-statement/">Use statement</a>
         
     </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../packages/builtin/">Builtin</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../packages/platform/">Use conditions</a>
+        
+    </li>
+
+        
+    </ul>
 <li>
           
             <li>
     <li class="toctree-l1 ">
         <a class="" href="../../compiler-clargs/clargs/">Compiler args</a>
-        
-    </li>
-<li>
-          
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../patterns/patterns/">Patterns</a>
         
     </li>
 <li>
@@ -451,6 +459,13 @@
             <li>
     <ul class="subnav">
     <li><span>The Runtime</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../runtime/otp/">Otp</a>
+        
+    </li>
 
         
             
@@ -569,7 +584,8 @@ String tag // A string tag
 </code></pre>
 
 <p>When we use a <code>String</code> we usually mean a string value, so we make <code>val</code> the default reference capability for <code>String</code>.</p>
-<p><strong>So do I have to specify a reference capability when I define a type?</strong> Only if you want to. There are sensible defaults that most types will use. These are <code>ref</code> for classes, <code>val</code> for primitives and <code>tag</code> for actors.</p>
+<p><strong>So do I have to specify a reference capability when I define a type?</strong> Only if you want to. There are sensible defaults that most types will use. These are <code>ref</code> for classes, <code>val</code> for primitives (i.e. immutable references) and <code>tag</code> for actors.
+So the default for any mutable reference capability is <code>iso</code> and the default for any immutable reference capability is <code>val</code>.</p>
               
             </div>
           </div>

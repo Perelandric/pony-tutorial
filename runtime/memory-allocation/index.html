@@ -338,13 +338,6 @@
           
             <li>
     <li class="toctree-l1 ">
-        <a class="" href="../../packages/package-system/">Package system</a>
-        
-    </li>
-<li>
-          
-            <li>
-    <li class="toctree-l1 ">
         <a class="" href="../../composition-inheritance/code-sharing/">Code sharing</a>
         
     </li>
@@ -373,29 +366,44 @@
 <li>
           
             <li>
+    <ul class="subnav">
+    <li><span>Packages</span></li>
+
+        
+            
     <li class="toctree-l1 ">
-        <a class="" href="../../platform/platform/">Platform</a>
+        <a class="" href="../../packages/package-system/">Package system</a>
         
     </li>
-<li>
-          
-            <li>
+
+        
+            
     <li class="toctree-l1 ">
-        <a class="" href="../../editor-plugins/plugins/">Editor support</a>
+        <a class="" href="../../packages/use-statement/">Use statement</a>
         
     </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../packages/builtin/">Builtin</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../packages/platform/">Use conditions</a>
+        
+    </li>
+
+        
+    </ul>
 <li>
           
             <li>
     <li class="toctree-l1 ">
         <a class="" href="../../compiler-clargs/clargs/">Compiler args</a>
-        
-    </li>
-<li>
-          
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../patterns/patterns/">Patterns</a>
         
     </li>
 <li>
@@ -435,10 +443,29 @@
 
         
             
+    <li class="toctree-l1 ">
+        <a class="" href="../otp/">Otp</a>
+        
+    </li>
+
+        
+            
     <li class="toctree-l1 current">
         <a class="current" href="./">Memory allocation</a>
         
             <ul>
+            
+                <li class="toctree-l3"><a href="#memory-allocation-at-runtime">Memory allocation at runtime</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#fast-safe-and-cheap">Fast, Safe and Cheap</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#but-caveat-emptor">But Caveat Emptor</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#and-long-running-actors">And, long-running actors</a></li>
+                
             
             </ul>
         
@@ -498,7 +525,38 @@
           <div role="main">
             <div class="section">
               
-                
+                <h1 id="memory-allocation-at-runtime">Memory allocation at runtime</h1>
+<p>Pony is NULL-free, type-safe language, with no dangling pointers, no
+buffer overruns, but with a <strong>very fast garbage collector</strong>, so you
+don't have to worry about explicit memory allocation, if on the heap
+or stack, if in a threaded actor, or not.</p>
+<h1 id="fast-safe-and-cheap">Fast, Safe and Cheap</h1>
+<ul>
+<li>An actor has ~240 bytes of memory overhead.</li>
+<li>No locks. No context switches. All mutation is local</li>
+<li>An idle actor consumes no resources ( other than memory )</li>
+<li>You can have millions of actors at the same time</li>
+</ul>
+<h1 id="but-caveat-emptor">But Caveat Emptor</h1>
+<p>But pony can be used to create <strong>C libraries</strong> and pony can use
+external C libraries via the <strong>FFI</strong> which does not have this luxury,</p>
+<p>So you <strong>can</strong> use any external C library out there, but the question is if
+you <strong>need to</strong> and if you <strong>should</strong>.</p>
+<p>The biggest problem is external heap memory, created by an external
+FFI call, or created to support an external call. But external stack
+space might also need some thoughts, esp. when being created from
+actors.</p>
+<p>Pony has no <strong>finalizers</strong>, callbacks which are called by the garbage
+collector to free external memory, which was allocated by a FFI call.
+The garbage collector is <em>not timely</em> (as with pure reference
+counting), it is not triggered immediately when some object goes out
+of scope.</p>
+<p>A blocked actor will keep it's memory allocated, only a dead actor
+will release it eventually.</p>
+<h1 id="and-long-running-actors">And, long-running actors</h1>
+<p>might cause unexpected out of memory errors, since the GC is not yet triggered on an
+out-of-memory segfault or stack exhaustion.</p>
+<p>...</p>
               
             </div>
           </div>
@@ -509,7 +567,7 @@
         <a href="../garbage-collection/" class="btn btn-neutral float-right" title="Garbage collection"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../c-ffi/c-abi/" class="btn btn-neutral" title="C abi"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../otp/" class="btn btn-neutral" title="Otp"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -535,7 +593,7 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../../c-ffi/c-abi/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../otp/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
         <span style="margin-left: 15px"><a href="../garbage-collection/" style="color: #fcfcfc">Next &raquo;</a></span>
