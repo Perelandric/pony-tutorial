@@ -544,7 +544,15 @@ code by yourself. See the <code>options</code> package for this.</p>
 <p><code>--output</code> or <code>-o</code> takes a directory name where the final binary is
 created.</p>
 <p><code>--docs</code> or -<code>g</code> creates a directory of the package with documentation
-in markdown format.</p>
+in <a href="http://readthedocs.org">readthedocs.org</a> format, i.e. markdown
+with nice navigation.</p>
+<p>Let's study the documentation of the builtin stdlib:</p>
+<pre><code class="bash">  pip install mkdocs
+  ponyc packages/stdlib --docs &amp;&amp; cd stdlib-docs &amp;&amp; mkdocs serve
+</code></pre>
+
+<p>And point your web browser to <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a>
+serving a live-reloading local version of the docs.</p>
 <p>Note that there is <em>no builtin debugger</em> to interactively step through
 your program and interpret the results. But ponyc creates proper DWARF
 symbols and you can step through your programs with a conventional
