@@ -528,7 +528,7 @@ use &quot;bar&quot; if (windows and debug)
 <p>Use conditions can use any of the methods defined in <code>builtin/Platform</code> as conditions.
 There are currently the following booleans defined:
 <code>freebsd</code>, <code>linux</code>, <code>osx</code>, <code>posix</code> =&gt; <code>(freebsd or linux or osx)</code>,
-<code>windows</code>, <code>x86</code>, <code>arm</code>, <code>lp64</code>, <code>llp64</code>, <code>ilp32</code>, <code>has_i128</code>, <code>debug</code></p>
+<code>windows</code>, <code>x86</code>, <code>arm</code>, <code>lp64</code>, <code>llp64</code>, <code>ilp32</code>, <code>native128</code>, <code>debug</code></p>
 <p>They can also use the operators <code>and</code>, <code>or</code>, <code>xor</code> and <code>not</code>. As with other expressions in Pony, parentheses <strong>must</strong> be used to indicate precedence if more than one of <code>and</code>, <code>or</code> and <code>xor</code> is used.</p>
 <p>Any use command whose condition evaluates to false is ignored.</p>
               
