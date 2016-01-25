@@ -525,7 +525,7 @@
 <h1 id="delegates">Delegates</h1>
 <p>Any <strong>trait</strong> or <strong>interface</strong> can be used as a <em>mixin</em> by exploiting delegate type declarations.</p>
 <pre><code class="pony">trait Wombat
-  fun box battle_call() : String val =&gt; 
+  fun box battle_call() : String val =&gt;
     &quot;Huzzah!&quot;
 
 class SimpleWombat is Wombat
@@ -572,7 +572,7 @@ actor Main is Wombat
     w = match (Time.nanos() and 1) == 1
     | true =&gt; KungFuWombat
     else SimpleWombat
-    end 
+    end
     env.out.print(&quot;Battle cry: &quot; + battle_call())
 </code></pre>
 
@@ -581,7 +581,7 @@ actor Main is Wombat
 get either a <code>KungFuWombat</code> or a <code>SimpleWombat</code>. Sometimes though, things get a little more
 complicated in real code:</p>
 <pre><code class="pony">trait Drone
-  fun box battle_call() : String val =&gt; 
+  fun box battle_call() : String val =&gt;
     &quot;Beep Boop!&quot;
 
 class DroneWombat is ( Drone &amp; Wombat)
@@ -647,7 +647,7 @@ cannot unambiguously choose one. So we need to make disambiguate explicitly:</p>
 </code></pre>
 
 <p>Delegates are a convenient and flexible way to reuse, mixin, and/or adapt
-code to different strategies or polices allowing for a very high degree of
+code to different strategies or policies allowing for a very high degree of
 flexibility in composing reasonably complex software components from relatively simple
 parts.</p>
 <p>In pony, delegates can benefit from <em>nominal</em> ( via <strong>traits</strong> ) or implicit or explicit <em>structural</em> ( via <strong>interfaces</strong> ) subtyping and local disambiguation where necessary, whilst sensible default

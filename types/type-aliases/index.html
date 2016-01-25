@@ -560,7 +560,7 @@ end
 </code></pre>
 
 <h1 id="complex-types">Complex types</h1>
-<p>If a type is complicated, it can be nice to give it a mnemonic name. For example, if we want to say that a type must implement more than one trait, we could say:</p>
+<p>If a type is complicated, it can be nice to give it a mnemonic name. For example, if we want to say that a type must implement more than one interface, we could say:</p>
 <pre><code class="pony">interface HasName
   fun name(): String
 
@@ -569,6 +569,19 @@ interface HasAge
 
 interface HasAddress
   fun address(): String
+
+type Person is (HasName &amp; HasAge &amp; HasAddress)
+</code></pre>
+
+<p>This use of complex types applies to traits, not just interfaces:</p>
+<pre><code class="pony">trait HasName
+  fun name(): String =&gt; &quot;Bob&quot;
+
+trait HasAge
+  fun age(): U32 =&gt; &quot;42&quot;
+
+trait HasAddress
+  fun address(): String =&gt; &quot;3 Abbey Road&quot;
 
 type Person is (HasName &amp; HasAge &amp; HasAddress)
 </code></pre>
