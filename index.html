@@ -1,531 +1,705 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
-  
-  <title>Pony Tutorial</title>
-  
-
-  <link rel="shortcut icon" href="./img/favicon.ico">
-
-  
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
-
-  <link rel="stylesheet" href="./css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="./css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="./css/highlight.css">
-  <link href="./css/highlight.css" rel="stylesheet">
-
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "None";
-    var mkdocs_page_input_path = "index.md";
-    var mkdocs_page_url = "/";
-  </script>
-  
-  <script src="./js/jquery-2.1.1.min.js"></script>
-  <script src="./js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="./js/highlight.pack.js"></script>
-  <script src="./js/theme.js"></script> 
-  <script src="./js/highlight.pack.js"></script>
-
-  
-</head>
-
-<body class="wy-body-for-nav" role="document">
-
-  <div class="wy-grid-for-nav">
-
+<!--[if lt IE 7 ]><html class="no-js ie6"><![endif]-->
+<!--[if IE 7 ]><html class="no-js ie7"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie8"><![endif]-->
+<!--[if IE 9 ]><html class="no-js ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-      <div class="wy-side-nav-search">
-        <a href="." class="icon icon-home"> Pony Tutorial</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-  </form>
-</div>
+      
+        <title>Pony Tutorial</title>
+      
+      
+      
+      
+    
+    <meta property="og:url" content="None">
+    <meta property="og:title" content="Pony Tutorial">
+    <meta property="og:image" content="None/./">
+    <meta name="apple-mobile-web-app-title" content="Pony Tutorial">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/images/favicon-e565ddfa3b.ico">
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon-e565ddfa3b.ico">
+    <style>
+      @font-face {
+      	font-family: 'Icon';
+      	src: url('./assets/fonts/icon.eot?52m981');
+      	src: url('./assets/fonts/icon.eot?#iefix52m981')
+               format('embedded-opentype'),
+      		   url('./assets/fonts/icon.woff?52m981')
+               format('woff'),
+      		   url('./assets/fonts/icon.ttf?52m981')
+               format('truetype'),
+      		   url('./assets/fonts/icon.svg?52m981#icon')
+               format('svg');
+      	font-weight: normal;
+      	font-style: normal;
+      }
+    </style>
+    <link rel="stylesheet" href="./assets/stylesheets/application-20d5debb47.css">
+    
+    
+      
+      
+      
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu+Mono">
+      <style>
+        body, input {
+          font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+        }
+        pre, code {
+          font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+        }
+      </style>
+    
+    
+      <link rel="stylesheet" href="./css/highlight.css">
+    
+    <script src="./assets/javascripts/modernizr-4ab42b99fd.js"></script>
+    
+  </head>
+  
+  
+  
+  <body class=" ">
+    
+    <div class="backdrop">
+      <div class="backdrop-paper"></div>
+    </div>
+    <input class="toggle" type="checkbox" id="toggle-drawer">
+    <input class="toggle" type="checkbox" id="toggle-search">
+    <label class="toggle-button overlay" for="toggle-drawer"></label>
+    <header class="header">
+      <nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        
+          <span class="path">
+            
+              
+                Getting started <i class="icon icon-link"></i>
+              
+            
+          </span>
+        
+        Pony Tutorial
       </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        <ul class="current">
+    </div>
+    
+    
+    <div class="button button-search" role="button" aria-label="Search">
+      <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
+    </div>
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+    </header>
+    <main class="main">
+      
+      <div class="drawer">
+        <nav aria-label="Navigation">
+  
+  <a href="/" class="project">
+    <div class="banner">
+      
+      <div class="name">
+        <strong>Pony Tutorial </strong>
+        
+      </div>
+    </div>
+  </a>
+  <div class="scrollable">
+    <div class="wrapper">
+      
+      <div class="toc">
+        <ul>
           
-            <li>
-    <ul class="subnav">
-    <li><span>Getting started</span></li>
-
-        
             
-    <li class="toctree-l1 current">
-        <a class="current" href=".">Welcome!</a>
+  <li>
+    <span class="section">Getting started</span>
+    <ul>
+      
         
-            <ul>
-            
-                <li class="toctree-l3"><a href="#pony-tutorial">Pony tutorial</a></li>
-                
-                    <li><a class="toctree-l4" href="#more-help">More help</a></li>
-                
-                    <li><a class="toctree-l4" href="#whats-pony-anyway">What's Pony, anyway?</a></li>
-                
-            
-            </ul>
+  <li>
+    <a class="current" title="Welcome!" href=".">
+      Welcome!
+    </a>
+    
+      
         
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="getting-started/what-you-need-to-start/">What you need to start</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="getting-started/installation/">Installation</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="getting-started/helloworld/">Helloworld</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="getting-started/how-it-works/">How it works</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="getting-started/whitespace/">Whitespace</a>
-        
-    </li>
-
-        
-    </ul>
-<li>
+      
+      
+        <ul>
           
-            <li>
-    <ul class="subnav">
-    <li><span>Types</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="types/static-vs-dynamic/">Static vs dynamic</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="types/classes/">Classes</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="types/primitives/">Primitives</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="types/actors/">Actors</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="types/traits-and-interfaces/">Traits and interfaces</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="types/type-aliases/">Type aliases</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="types/type-expressions/">Type expressions</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="types/delegates/">Delegates</a>
-        
-    </li>
-
-        
-    </ul>
-<li>
+            <li class="anchor">
+              <a title="More help" href="#more-help">
+                More help
+              </a>
+            </li>
           
-            <li>
-    <ul class="subnav">
-    <li><span>Expressions</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="expressions/variables/">Variables</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="expressions/infix-ops/">Infix ops</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="expressions/control-structures/">Control structures</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="expressions/methods/">Methods</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="expressions/exceptions/">Exceptions</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="expressions/sugar/">Sugar</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="expressions/object-literals/">Object literals</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="expressions/partial-application/">Partial application</a>
-        
-    </li>
-
-        
-    </ul>
-<li>
-          
-            <li>
-    <ul class="subnav">
-    <li><span>Capabilities</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="capabilities/object-capabilities/">Object capabilities</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="capabilities/reference-capabilities/">Reference capabilities</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="capabilities/guarantees/">Guarantees</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="capabilities/aliasing/">Aliasing</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="capabilities/consume-and-destructive-read/">Consume and destructive read</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="capabilities/recovering-capabilities/">Recovering capabilities</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="capabilities/combining-capabilities/">Combining capabilities</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="capabilities/passing-and-sharing/">Passing and sharing</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="capabilities/capability-subtyping/">Capability subtyping</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="capabilities/arrow-types/">Arrow types</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="capabilities/trust-boundary/">Trust boundary</a>
-        
-    </li>
-
-        
-    </ul>
-<li>
-          
-            <li>
-    <ul class="subnav">
-    <li><span>Generics</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="generics/polymorphic-types/">Polymorphic types</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="generics/polymorphic-methods/">Polymorphic methods</a>
-        
-    </li>
-
-        
-    </ul>
-<li>
-          
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="composition-inheritance/code-sharing/">Code sharing</a>
-        
-    </li>
-<li>
-          
-            <li>
-    <ul class="subnav">
-    <li><span>Pattern Matching</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="pattern-matching/match/">Match</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="pattern-matching/as/">As</a>
-        
-    </li>
-
-        
-    </ul>
-<li>
-          
-            <li>
-    <ul class="subnav">
-    <li><span>Packages</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="packages/package-system/">Package system</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="packages/use-statement/">Use statement</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="packages/builtin/">Builtin</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="packages/platform/">Use conditions</a>
-        
-    </li>
-
-        
-    </ul>
-<li>
-          
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="compiler-clargs/clargs/">Compiler args</a>
-        
-    </li>
-<li>
-          
-            <li>
-    <ul class="subnav">
-    <li><span>C FFI</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="c-ffi/calling-c/">Calling C</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="c-ffi/linking-c/">Linking to C Libraries</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="c-ffi/c-abi/">C abi</a>
-        
-    </li>
-
-        
-    </ul>
-<li>
-          
-            <li>
-    <ul class="subnav">
-    <li><span>The Runtime</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="runtime/otp/">Otp</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="runtime/memory-allocation/">Memory allocation</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="runtime/garbage-collection/">Garbage collection</a>
-        
-    </li>
-
-        
-    </ul>
-<li>
-          
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="examples/examples/">Examples</a>
-        
-    </li>
-<li>
+            <li class="anchor">
+              <a title="What's Pony, anyway?" href="#whats-pony-anyway">
+                What's Pony, anyway?
+              </a>
+            </li>
           
         </ul>
+      
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="What you need to start" href="getting-started/what-you-need-to-start/">
+      What you need to start
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Installation" href="getting-started/installation/">
+      Installation
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Helloworld" href="getting-started/helloworld/">
+      Helloworld
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="How it works" href="getting-started/how-it-works/">
+      How it works
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Whitespace" href="getting-started/whitespace/">
+      Whitespace
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Types</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Static vs dynamic" href="types/static-vs-dynamic/">
+      Static vs dynamic
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Classes" href="types/classes/">
+      Classes
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Primitives" href="types/primitives/">
+      Primitives
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Actors" href="types/actors/">
+      Actors
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Traits and interfaces" href="types/traits-and-interfaces/">
+      Traits and interfaces
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Type aliases" href="types/type-aliases/">
+      Type aliases
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Type expressions" href="types/type-expressions/">
+      Type expressions
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Delegates" href="types/delegates/">
+      Delegates
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Expressions</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Variables" href="expressions/variables/">
+      Variables
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Infix ops" href="expressions/infix-ops/">
+      Infix ops
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Control structures" href="expressions/control-structures/">
+      Control structures
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Methods" href="expressions/methods/">
+      Methods
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Exceptions" href="expressions/exceptions/">
+      Exceptions
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Sugar" href="expressions/sugar/">
+      Sugar
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Object literals" href="expressions/object-literals/">
+      Object literals
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Partial application" href="expressions/partial-application/">
+      Partial application
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Capabilities</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Object capabilities" href="capabilities/object-capabilities/">
+      Object capabilities
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Reference capabilities" href="capabilities/reference-capabilities/">
+      Reference capabilities
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Guarantees" href="capabilities/guarantees/">
+      Guarantees
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Aliasing" href="capabilities/aliasing/">
+      Aliasing
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Consume and destructive read" href="capabilities/consume-and-destructive-read/">
+      Consume and destructive read
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Recovering capabilities" href="capabilities/recovering-capabilities/">
+      Recovering capabilities
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Combining capabilities" href="capabilities/combining-capabilities/">
+      Combining capabilities
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Passing and sharing" href="capabilities/passing-and-sharing/">
+      Passing and sharing
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Capability subtyping" href="capabilities/capability-subtyping/">
+      Capability subtyping
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Arrow types" href="capabilities/arrow-types/">
+      Arrow types
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Trust boundary" href="capabilities/trust-boundary/">
+      Trust boundary
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Generics</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Polymorphic types" href="generics/polymorphic-types/">
+      Polymorphic types
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Polymorphic methods" href="generics/polymorphic-methods/">
+      Polymorphic methods
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Code sharing" href="composition-inheritance/code-sharing/">
+      Code sharing
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Pattern Matching</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Match" href="pattern-matching/match/">
+      Match
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="As" href="pattern-matching/as/">
+      As
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Packages</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Package system" href="packages/package-system/">
+      Package system
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Use statement" href="packages/use-statement/">
+      Use statement
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Builtin" href="packages/builtin/">
+      Builtin
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Use conditions" href="packages/platform/">
+      Use conditions
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Compiler args" href="compiler-clargs/clargs/">
+      Compiler args
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <span class="section">C FFI</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Calling C" href="c-ffi/calling-c/">
+      Calling C
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Linking to C Libraries" href="c-ffi/linking-c/">
+      Linking to C Libraries
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="C abi" href="c-ffi/c-abi/">
+      C abi
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">The Runtime</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Otp" href="runtime/otp/">
+      Otp
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Memory allocation" href="runtime/memory-allocation/">
+      Memory allocation
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Garbage collection" href="runtime/garbage-collection/">
+      Garbage collection
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Examples" href="examples/examples/">
+      Examples
+    </a>
+    
+  </li>
+
+          
+        </ul>
+        
       </div>
-      &nbsp;
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href=".">Pony Tutorial</a>
-      </nav>
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href=".">Docs</a> &raquo;</li>
-    
-      
-        
-          <li>Getting started &raquo;</li>
-        
-      
-    
-    <li>Welcome!</li>
-    <li class="wy-breadcrumbs-aside">
-      
-    </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main">
-            <div class="section">
-              
-                <h1 id="pony-tutorial">Pony tutorial</h1>
+    </div>
+  </div>
+</nav>
+      </div>
+      <article class="article">
+        <div class="wrapper">
+          
+          <h1 id="pony-tutorial">Pony tutorial</h1>
 <p>Welcome to the Pony tutorial! If you're reading this, chances are you want to learn Pony. That's great, we're going to make that happen.</p>
 <p>This tutorial is aimed at people who have some experience programming already. It doesn't really matter if you know a little Python, or a bit of Ruby, or you are a JavaScript hacker, or Java, or Scala, or C/C++, or Haskell, or OCaml: as long as you've written some code before, you should be fine.</p>
 <h2 id="more-help">More help</h2>
@@ -541,50 +715,65 @@
 <li>It's deadlock free. This one is easy, because Pony has no locks at all! So they definitely don't deadlock, because they don't exist.</li>
 </ul>
 <p>We'll talk more about capabilities-security, including both <strong>object capabilities</strong> and <strong>reference capabilities</strong> later.</p>
+          <aside class="copyright" role="note">
+            
+            Documentation built with
+            <a href="http://www.mkdocs.org" target="_blank">MkDocs</a>
+            using the
+            <a href="http://squidfunk.github.io/mkdocs-material/" target="_blank">
+              Material
+            </a>
+            theme.
+          </aside>
+          
+            <footer class="footer">
               
-            </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="getting-started/what-you-need-to-start/" class="btn btn-neutral float-right" title="What you need to start">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
+  <nav class="pagination" aria-label="Footer">
+    <div class="previous">
       
     </div>
-  
+    <div class="next">
+      
+        <a href="getting-started/what-you-need-to-start/" title="What you need to start">
+          <span class="direction">
+            Next
+          </span>
+          <div class="page">
+            <div class="stretch">
+              <div class="title">
+                What you need to start
+              </div>
+            </div>
+            <div class="button button-next" role="button" aria-label="Next">
+              <i class="icon icon-forward"></i>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+  </nav>
 
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-    
-  </div>
-
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-	  
+            </footer>
+          
+        </div>
+      </article>
+      <div class="results" role="status" aria-live="polite">
+        <div class="scrollable">
+          <div class="wrapper">
+            <div class="meta"></div>
+            <div class="list"></div>
+          </div>
         </div>
       </div>
-
-    </section>
-
-  </div>
-
-<div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-      
-      
-        <span style="margin-left: 15px"><a href="getting-started/what-you-need-to-start/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
-</div>
-
-</body>
+    </main>
+    <script>
+      var base_url = '.';
+      var repo_id  = '';
+    </script>
+    <script src="./assets/javascripts/application-997097ee0c.js"></script>
+    
+      <script src="./js/highlight.pack.js"></script>
+    
+    
+  </body>
 </html>
-
-<!--
-MkDocs version : 0.15.3
-Build Date UTC : 2016-03-17 12:47:39.189712
--->
